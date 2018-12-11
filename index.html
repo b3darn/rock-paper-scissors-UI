@@ -6,91 +6,19 @@
     </head>
 
     <body>
-        <script>
+        <div id="buttons">
+            <button id="Rock">Rock</button>
+            <button id="Paper">Paper</button>
+            <button id="Scissors">Scissors</button>
+        </div>
 
-            function computerPlay() {
-                let computerChoice = Math.floor(Math.random()*(3-1+1)+1);
-                
-                if (computerChoice === 1) {
-                    return "Rock";
-                }
-                else if (computerChoice === 2) {
-                    return "Paper";
-                }
-                else {
-                    return "Scissors";
-                }
-            }
-
-            const computerSelection = computerPlay()
-            
-            function playRound(playerSelection, computerSelection){
-                let playerChoiceLower = playerSelection.toLowerCase();
-                let playerChoiceCapitalize = (playerChoiceLower.charAt(0).toUpperCase() + playerChoiceLower.slice(1))
-                
-
-                    if (playerChoiceCapitalize === computerSelection) {
-                        console.log("Tie");
-                        return "Tie"
-                    }
-                    else if (playerChoiceCapitalize === "Rock" && computerSelection === "Scissors" || 
-                    playerChoiceCapitalize === "Paper" && computerSelection === "Rock" || 
-                    playerChoiceCapitalize === "Scissors" && computerSelection === "Paper") {
-                        console.log("Player")
-                        return "Player"
-                    }
-                    else if (computerSelection === "Rock" && playerChoiceCapitalize === "Scissors" || 
-                    computerSelection === "Paper" && playerChoiceCapitalize === "Rock" || 
-                    computerSelection === "Scissors" && playerChoiceCapitalize === "Paper") {
-                        console.log("Computer")
-                        return "Computer"
-                    }
-                    else {
-                        return "That's not a choice, try again!"
-                    }
-            }
-            
-            function game() {
-                let playerWins = 0;
-                let computerWins = 0;
-                let gameTies = 0;
-
-                for (let i = 0; i < 5; i++) {
-                    let playerSelection = prompt("Rock, paper, scissors, what's your choice?");
-                    gameWinner = playRound(playerSelection, computerSelection);
-                    if (gameWinner === "Tie") {
-                        gameTies += 1;
-                        console.log(`The game has tied ${gameTies} times`)
-                    }
-                    else if (gameWinner === "Player") {
-                        playerWins += 1;
-                        console.log(`The player has won ${playerWins} times.`)
-                    }
-                    else {
-                        computerWins += 1;
-                        console.log(`The computer has won ${computerWins} times.`)
-                    }
-                }
-
-                if (playerWins > 2) {
-                    return "You win!"
-                }
-                else if (computerWins > 2) {
-                    return "You lose!"
-                }
-                else {
-                    return "It's a tie!"
-                }
-            }
-            
-
-
-
-        </script>
+        <div id="results">
+            <div id="score">Score</div>
+            <div id="player">Player: </div><div id="playerScore">0</div>
+            <div id="computer">Computer: </div><div id="computerScore">0</div>
+            <div id="ties">Ties: </div><div id="tieScore">0</div>
+        </div>
+        <script src="script.js"></script>
     </body>
-
-
-
-
 
 </html>
