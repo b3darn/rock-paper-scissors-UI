@@ -93,7 +93,8 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
 button.addEventListener('click', (e) => {
     checkIfNewGame();
-    computerPlay();
+    let computerSelection = computerPlay();
+    console.log(computerSelection);
     playRound(e.target.id, computerSelection);
     gameWinner();
 });
